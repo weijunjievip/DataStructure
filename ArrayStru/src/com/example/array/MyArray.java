@@ -1,27 +1,71 @@
 package com.example.array;
 
-public class MyArray {
+public class MyArray<T> {
 
     /*
     初始化一个长度为10的数组
      */
-    private static final int[] array = new int[10];
+    private T[] array = (T[]) new Object[10];
     private int size = 0;//记录数组中实际存储的数据量
 
     /**
-     * 向数组中添加元素
+     * 向数组中指定位置添加数据
+     *
+     * @param index
+     * @param element
      */
-    public static void add(int element) {
-
+    public void add(int index, T element) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("角标不合法，当前数组中可插入数据的有效范围为：[0, " + size + "]");
+        }
+        //当数组中存储的数据达到数组容量上限时，对数组进行扩容
+        if (size == array.length) {
+            resize();
+        }
+        //从index角标开始，将数组中的数据依次向后移动一个角标位
+        System.arraycopy(array, index, array, index + 1, size - index);
+        array[index] = element;
+        size++;
     }
 
     /**
-     * 删除数组中指定位置上的数据
+     * 向数组头部添加数据
+     *
+     * @param element
+     */
+    public void addFirst(T element) {
+        if (size == array.length) {
+            resize();
+        }
+        System.arraycopy(array, 0, array, 1, size);
+        array[0] = element;
+        size++;
+    }
+
+    /**
+     * 向数组尾部添加数据
+     */
+    public void addLast(T element) {
+        if (size == array.length) {
+            resize();
+        }
+        array[size] = element;
+        size++;
+    }
+
+    /**
+     * 删除并返回数组中指定位置上的数据
      *
      * @param index 删除该位置上的数据
      */
-    public static void remove(int index) {
-
+    public T remove(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("角标不合法，当前数组中可删除数据的有效范围为：[0, " + (size - 1) + "]");
+        }
+        T element = array[index];
+        if (size - index >= 0) System.arraycopy(array, index + 1, array, index, size - index);
+        size--;
+        return element;
     }
 
     /**
@@ -30,8 +74,11 @@ public class MyArray {
      * @param index   修改该位置上的数据
      * @param element 用来替换数组中的旧数据
      */
-    public static void set(int index, int element) {
-
+    public void set(int index, T element) {
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("角标不合法，当前数组中可修改数组中数据的有效范围为：[0, " + (size - 1) + "]");
+        }
+        array[index] = element;
     }
 
     /**
@@ -40,22 +87,52 @@ public class MyArray {
      * @param index 将该位置上的数据返回
      * @return 返回指定位置上的数据，如果指定的角标不合法，则抛出异常
      */
-    public static int get(int index) {
-        return -1;
+    public T get(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("角标不合法，当前数组中可获取数组中数据的有效范围为：[0, " + (size - 1) + "]");
+        }
+        return array[index];
     }
 
     /**
      * 当数组容量不足以装载用户存储的数据时，对底层数据进行扩容，将数组容量扩充至原数组长度的1.5倍
      */
-    private static void resize() {
-
+    private void resize() {
+        int length = array.length;
+        T[] newArray = (T[]) new Object[length + length / 2];
+        System.arraycopy(array, 0, newArray, 0, length);
+        array = newArray;
     }
 
     /**
      * 获取数组中实际存储的数据量
      */
-    public static int size() {
-        return size();
+    public int size() {
+        return size;
     }
 
+    /**
+     * 获取底层数组的实际容量
+     *
+     * @return
+     */
+    public int length() {
+        return array.length;
+    }
+
+    /**
+     * 以ClassName:[element1, element2, element3, ...]这种方式返回数组中存储的所有数据
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(getClass().getSimpleName()).append(":[");
+        for (int i = 0; i < size - 1; i++) {
+            builder.append(array[i]).append(", ");
+        }
+        builder.append(array[size - 1]).append("]");
+        return builder.toString();
+    }
 }
