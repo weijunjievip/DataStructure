@@ -2,11 +2,24 @@ package com.example.array;
 
 public class MyArray<T> {
 
-    /*
-    初始化一个长度为10的数组
-     */
-    private T[] array = (T[]) new Object[10];
-    private int size = 0;//记录数组中实际存储的数据量
+    private T[] array;//用来存储数据的底层数组
+    private int size;//记录数组中实际存储的数据量
+
+    public MyArray() {
+        this(10);
+    }
+
+    public MyArray(int capacity) {
+        if (capacity >= 0 && capacity < 10) {
+            capacity = 10;
+        }
+        if (capacity > 10000 || capacity < 0) {
+            throw new IllegalArgumentException("疯啦？？？！！！");
+        }
+        //当传入一个0~10之间的初始容量时，底层默认初始化一个长度为10的数组，当大于10的时候，按用户传入的实际容量来初始化底层数组
+        array = (T[]) new Object[capacity];
+        size = 0;
+    }
 
     /**
      * 向数组中指定位置添加数据
@@ -19,7 +32,7 @@ public class MyArray<T> {
             throw new IndexOutOfBoundsException("角标不合法，当前数组中可插入数据的有效范围为：[0, " + size + "]");
         }
         //当数组中存储的数据达到数组容量上限时，对数组进行扩容
-        if (size == array.length) {
+        if (size >= array.length) {
             resize();
         }
         //从index角标开始，将数组中的数据依次向后移动一个角标位
@@ -34,7 +47,7 @@ public class MyArray<T> {
      * @param element
      */
     public void addFirst(T element) {
-        if (size == array.length) {
+        if (size >= array.length) {
             resize();
         }
         System.arraycopy(array, 0, array, 1, size);
@@ -46,7 +59,7 @@ public class MyArray<T> {
      * 向数组尾部添加数据
      */
     public void addLast(T element) {
-        if (size == array.length) {
+        if (size >= array.length) {
             resize();
         }
         array[size] = element;
