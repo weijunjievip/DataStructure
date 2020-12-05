@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrayStru/ArrayStru.iml" filepath="$PROJECT_DIR$/ArrayStru/ArrayStru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" filepath="$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" filepath="$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" />
     </modules>
   </component>
 </project>
