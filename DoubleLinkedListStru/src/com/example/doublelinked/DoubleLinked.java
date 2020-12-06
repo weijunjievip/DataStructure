@@ -205,14 +205,16 @@ public class DoubleLinked<T> {
         }
         int middleIndex = size / 2;//计算链表的中间节点位置
         Node<T> node;
+        int realIndex = index - 1;
         if (index > middleIndex) {//如果要查找的节点在链表中间节点的右边，则从后向前找
             node = foot;
-            for (int i = size - 1; i > index - 1; i--) {
+            int lastIndex = size - 1;
+            for (int i = lastIndex; i > realIndex; i--) {
                 node = node.prev;
             }
         } else {//如果要查找的节点在链表中间节点的左边，则从前向后找
             node = head;
-            for (int i = 0; i < index - 1; i++) {
+            for (int i = 0; i < realIndex; i++) {
                 node = node.next;
             }
         }
