@@ -26,7 +26,7 @@ public class SinglyLinked<T> {
      */
     public void add(int index, T element) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("角标不合法，当前链表中可插入数据的有效角标范围为：[0~" + size + "]");
         }
         Node<T> node = new Node<>(element);
         if (index == 0) {//链表头部插入节点
@@ -97,11 +97,11 @@ public class SinglyLinked<T> {
      */
     public T remove(int index) {
         if (index < 0 || index > size - 1) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("角标不合法，当前链表中可移除数据的角标范围为：[0~" + (size - 1) + "]");
         }
         if (isEmpty()) {//如果链表为空的话，将头节点和为节点都置为空并抛出异常提示用户
             head = foot = null;
-            throw new NullPointerException();
+            throw new NullPointerException("当前链表为空，没有数据可以被移除");
         }
         if (index == 0) {//移除链表的头节点
             return removeHead();
@@ -124,7 +124,7 @@ public class SinglyLinked<T> {
     public T removeHead() {
         if (isEmpty()) {
             head = foot = null;
-            throw new NullPointerException();
+            throw new NullPointerException("当前链表为空，没有数据可以被移除");
         }
         Node<T> node = head;
         head = node.next;
@@ -140,7 +140,7 @@ public class SinglyLinked<T> {
     public T removeFoot() {
         if (isEmpty()) {
             head = foot = null;
-            throw new NullPointerException();
+            throw new NullPointerException("当前链表为空，没有数据可以被移除");
         }
         Node<T> node = foot;
         foot = getIndexBeforeNode(size - 1);
@@ -157,10 +157,10 @@ public class SinglyLinked<T> {
      */
     public void set(int index, T element) {
         if (index < 0 || index > size - 1) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("角标不合法，当前链表中可修改数据的角标范围为：[0~" + (size - 1) + "]");
         }
         if (isEmpty()) {
-            throw new NullPointerException();
+            throw new NullPointerException("当前链表为空，没有数据可以被修改");
         }
         if (index == 0) {
             head.element = element;
@@ -178,10 +178,10 @@ public class SinglyLinked<T> {
      */
     public T get(int index) {
         if (index < 0 || index > size - 1) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("角标不合法，当前链表中可获取数据的角标范围为：[0~" + (size - 1) + "]");
         }
         if (isEmpty()) {
-            throw new NullPointerException();
+            throw new NullPointerException("当前链表为空，没有可以获取的数据");
         }
         if (index == 0) {
             return head.element;
