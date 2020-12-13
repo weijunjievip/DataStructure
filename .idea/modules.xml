@@ -4,7 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrayStru/ArrayStru.iml" filepath="$PROJECT_DIR$/ArrayStru/ArrayStru.iml" />
       <module fileurl="file://$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" filepath="$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoopQueueStruWithArray/LoopQueueStruWithArray.iml" filepath="$PROJECT_DIR$/LoopQueueStruWithArray/LoopQueueStruWithArray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QueueStruWithLinked/QueueStruWithLinked.iml" filepath="$PROJECT_DIR$/QueueStruWithLinked/QueueStruWithLinked.iml" />
       <module fileurl="file://$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" filepath="$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StackStruWithArray/StackStruWithArray.iml" filepath="$PROJECT_DIR$/StackStruWithArray/StackStruWithArray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StackStruWithLinked/StackStruWithLinked.iml" filepath="$PROJECT_DIR$/StackStruWithLinked/StackStruWithLinked.iml" />
     </modules>
   </component>
 </project>
