@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrayStru/ArrayStru.iml" filepath="$PROJECT_DIR$/ArrayStru/ArrayStru.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BinaryHeap/BinaryHeap.iml" filepath="$PROJECT_DIR$/BinaryHeap/BinaryHeap.iml" />
       <module fileurl="file://$PROJECT_DIR$/BinaryTree/BinaryTree.iml" filepath="$PROJECT_DIR$/BinaryTree/BinaryTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" filepath="$PROJECT_DIR$/DoubleLinkedListStru/DoubleLinkedListStru.iml" />
       <module fileurl="file://$PROJECT_DIR$/LoopQueueStruWithArray/LoopQueueStruWithArray.iml" filepath="$PROJECT_DIR$/LoopQueueStruWithArray/LoopQueueStruWithArray.iml" />
@@ -10,7 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" filepath="$PROJECT_DIR$/SinglyLinkedListStru/SinglyLinkedListStru.iml" />
       <module fileurl="file://$PROJECT_DIR$/StackStruWithArray/StackStruWithArray.iml" filepath="$PROJECT_DIR$/StackStruWithArray/StackStruWithArray.iml" />
       <module fileurl="file://$PROJECT_DIR$/StackStruWithLinked/StackStruWithLinked.iml" filepath="$PROJECT_DIR$/StackStruWithLinked/StackStruWithLinked.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BinaryTree/TraversalBinaryTreeByStack.iml" filepath="$PROJECT_DIR$/BinaryTree/TraversalBinaryTreeByStack.iml" />
     </modules>
   </component>
 </project>
