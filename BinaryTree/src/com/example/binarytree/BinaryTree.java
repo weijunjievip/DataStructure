@@ -17,9 +17,9 @@ public class BinaryTree<T> {
             return null;
         }
         TreeNode<T> treeNode = null;
-        T node = linkedList.removeFirst();
-        if (node != null) {
-            treeNode = new TreeNode<>(node);
+        T data = linkedList.removeFirst();
+        if (data != null) {
+            treeNode = new TreeNode<>(data);
             treeNode.leftChild = createTree(linkedList);
             treeNode.rightChild = createTree(linkedList);
         }
