@@ -23,10 +23,18 @@ public class BubbleSort {
      */
     public static void ascSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
+            //声明一个变量，用来判断当前数组中的元素是否已经是有序的了，默认为true，表示是有序的。
+            boolean isSorted = true;
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
                     swap(array, j, j + 1);
+                    //如果在比较的过程中数组中的元素发生了交换操作，则说明数组仍旧是无序的，那就继续循环比较
+                    isSorted = false;
                 }
+            }
+            //如果在比较过程中数组中的元素没有出现交换的操作，则证明数组已经是有序的了，此时直接跳出循环，比较结束。
+            if (isSorted) {
+                break;
             }
         }
     }
@@ -38,10 +46,15 @@ public class BubbleSort {
      */
     public static void descSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
+            boolean isSorted = true;
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] < array[j + 1]) {
                     swap(array, j, j + 1);
+                    isSorted = false;
                 }
+            }
+            if (isSorted) {
+                break;
             }
         }
     }
